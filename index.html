@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SUPER AWESOME ARCADE</title><meta name="description" content="Tiny addictive games. 5 free credits daily.">
-<link rel="icon" href="assets/logo.png"><meta property="og:image" content="assets/logo.png">
+<title>SUPER AWESOME ARCADE</title><meta name="description" content="Retro arcade games you can play free in your browser.">
+<link rel="icon" href="assets/logo.png"><meta property="og:title" content="SUPER AWESOME ARCADE"><meta property="og:description" content="Retro arcade games you can play free in your browser."><meta property="og:image" content="https://ryan-sharpnack.github.io/super-awesome-arcade/assets/logo.png">
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0D0E12;color:#fff;font-family:var(--font,'Courier New',monospace);line-height:1.8}
 main{max-width:900px;margin:0 auto;padding:36px 20px}
@@ -12,15 +12,13 @@ a.card:hover{border-color:var(--c)}.no{font-size:9px;color:#777}.card h3{margin:
 .card p{margin:0;font-size:9px;color:#b8b8c0;flex:1}.go{font-size:10px;color:#FF007F}.q{opacity:.45}.q .go{color:#777}
 footer{margin-top:40px;font-size:9px;color:#8a8a95}footer a{color:#39FF14}
 </style></head><body><main>
-<h1><span class="p">SUPER</span><br><span class="g">AWESOME ARCADE</span></h1>
-<p class="tag">TINY ADDICTIVE GAMES. BUILT WITH AI, IN PUBLIC. <span id="cr"></span></p>
+<h1><span class="p">SUPER</span><br><span class="g">AWESOME</span><br><span class="p">ARCADE</span></h1>
 <div class="grid" id="grid"></div>
 <footer>ALL-ACCESS TOKEN: <a id="pass" href="#" target="_blank" rel="noopener">UNLOCK EVERY GAME</a><br>FOLLOW: <a href="#">TIKTOK</a> · <a href="#">YOUTUBE</a> · <a href="#">INSTAGRAM</a> · <a href="#">X</a></footer>
 </main>
 <script src="hub.js"></script>
 <script>
 pass.href=HUB.C.store;pass.onclick=()=>HUB.track('hub','checkout_click');
-cr.textContent=HUB.C.free+' FREE CREDITS DAILY.';
 fetch('games.json').then(r=>r.json()).then(l=>{
   grid.innerHTML=l.map(g=>{const c=HUB.PAL[g.color],n='No. '+String(g.no).padStart(2,'0');
    return g.status==='live'
