@@ -54,4 +54,6 @@ function paywall(game){
   d.querySelector('#hub-go').onclick=async()=>{track(game,'unlock_attempt');
     if(C.hashes.includes(await sha(d.querySelector('#hub-key').value.trim()))){p('hub_unlocked','1');track(game,'unlock_success');d.remove();H.onUnlock&&H.onUnlock()}
     else d.querySelector('#hub-err').textContent='INVALID KEY'}}
+  const kq=new URLSearchParams(location.search).get('key');
+if(kq&&!H.unlocked())sha(kq.trim()).then(h=>{if(C.hashes.includes(h)){p('hub_unlocked','1');track('hub','unlock_success')}});
 return H})();
