@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SUPER AWESOME ARCADE</title><meta name="description" content="Tiny addictive games. 5 free credits daily.">
+<link rel="icon" href="assets/logo.png"><meta property="og:image" content="assets/logo.png">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0D0E12;color:#fff;font-family:var(--font,'Courier New',monospace);line-height:1.8}
+main{max-width:900px;margin:0 auto;padding:36px 20px}
+h1{margin:0;font-size:clamp(18px,5vw,34px);line-height:1.4;text-shadow:3px 3px 0 #0008}h1 .p{color:#FF007F}h1 .g{color:#39FF14}
+.tag{font-size:10px;color:#9a9aa5;margin:12px 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{border:2px solid #23242b;padding:16px;display:flex;flex-direction:column;gap:8px;color:inherit;text-decoration:none;background:#0D0E12}
+a.card:hover{border-color:var(--c)}.no{font-size:9px;color:#777}.card h3{margin:0;font-size:13px;color:var(--c);line-height:1.6}
+.card p{margin:0;font-size:9px;color:#b8b8c0;flex:1}.go{font-size:10px;color:#FF007F}.q{opacity:.45}.q .go{color:#777}
+footer{margin-top:40px;font-size:9px;color:#8a8a95}footer a{color:#39FF14}
+</style></head><body><main>
+<h1><span class="p">SUPER</span><br><span class="g">AWESOME ARCADE</span></h1>
+<p class="tag">TINY ADDICTIVE GAMES. BUILT WITH AI, IN PUBLIC. <span id="cr"></span></p>
+<div class="grid" id="grid"></div>
+<footer>ALL-ACCESS TOKEN: <a id="pass" href="#" target="_blank" rel="noopener">UNLOCK EVERY GAME</a><br>FOLLOW: <a href="#">TIKTOK</a> · <a href="#">YOUTUBE</a> · <a href="#">INSTAGRAM</a> · <a href="#">X</a></footer>
+</main>
+<script src="hub.js"></script>
+<script>
+pass.href=HUB.C.store;pass.onclick=()=>HUB.track('hub','checkout_click');
+cr.textContent=HUB.C.free+' FREE CREDITS DAILY.';
+fetch('games.json').then(r=>r.json()).then(l=>{
+  grid.innerHTML=l.map(g=>{const c=HUB.PAL[g.color],n='No. '+String(g.no).padStart(2,'0');
+   return g.status==='live'
+   ?`<a class="card" style="--c:${c}" href="games/${g.slug}/?utm_source=hub" data-s="${g.slug}"><span class="no">${n}</span><h3>${g.title}</h3><p>${g.tagline}</p><span class="go hub-blink">PRESS START</span></a>`
+   :`<div class="card q" style="--c:${c}"><span class="no">${n}</span><h3>${g.title}</h3><p>${g.tagline}</p><span class="go">COMING SOON</span></div>`}).join('');
+  document.querySelectorAll('a.card').forEach(a=>a.onclick=()=>HUB.track(a.dataset.s,'card_click'));
+});
+</script></body></html>
