@@ -1,6 +1,6 @@
 /* SUPER AWESOME ARCADE shared SDK. Edit CONFIG (C) only. Loaded by the hub and every game. */
 window.HUB=(()=>{
-const C={brand:'SUPER AWESOME ARCADE',free:5,store:'https://superawesomearcade.gumroad.com/l/access-token',gc:'superawesomearcade',tag:'#SuperAwesomeArcade',hashes:['be7f8beed3c583f5b74ad7ae87643af67b2a7a02680a5687826b4217f28bd4bb']};
+const C={brand:'SUPER AWESOME ARCADE',free:5,store:'https://superawesomearcade.gumroad.com/l/access-token',gc:'superawesomearcade',tag:'#SuperAwesomeArcade',hashes:['61f8621bb10d61f363a056a4ce0bfa327fb544b74dcb2af4c4470a8486bc3829']};
 const B={bg:'#0D0E12',pink:'#FF007F',green:'#39FF14',white:'#FFFFFF'};
 const PAL={cyan:'#00F3FF',amber:'#FFB000',violet:'#9D4EDD',orange:'#FF6B1A',ice:'#7DF9FF',yellow:'#FFE600'}; // game signature colors (never green)
 const base=document.currentScript.src.replace(/hub\.js.*$/,'');
