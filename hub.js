@@ -5,7 +5,7 @@ const B={bg:'#0D0E12',pink:'#FF007F',green:'#39FF14',white:'#FFFFFF'};
 const PAL={cyan:'#00F3FF',amber:'#FFB000',violet:'#9D4EDD',orange:'#FF6B1A',ice:'#7DF9FF',yellow:'#FFE600'}; // game signature colors (never green)
 const base=document.currentScript.src.replace(/hub\.js.*$/,'');
 const g=k=>{try{return localStorage.getItem(k)}catch(e){return null}},p=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
-const today=()=>new Date().toISOString().slice(0,10);
+const today=()=>new Date().toLocaleDateString('en-CA');
 const sha=s=>crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join(''));
 // shared look: font, colors, arcade UI classes
 const st=document.createElement('style');st.textContent=`
